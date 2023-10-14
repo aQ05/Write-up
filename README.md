@@ -99,4 +99,21 @@ Giá trị ở cột `value` đã được thay đổi từ -1 sang 0. Giờ th�
 ## Flag
 `picoCTF{3v3ry1_l0v3s_c00k135_064663be}`
 
+# HTTP - User-agent
+## Đề bài
+Admin is really dumb...
+## Cách làm
+1. Truy cập vào link http://challenge01.root-me.org/web-serveur/ch2/ 
 
+<img width="921" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/52ef7186-a47c-40d0-8c03-c52d45fe8135">
+
+Khi gửi request, ta nhận được `Wrong user-agent: you are not the "admin" browser!`. 
+
+<img width="341" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/15e4988f-0d60-40b0-8c27-e39d737d96df">
+
+Sử dụng Burpsuite, trong phần request sửa phần user-agent thành `admin` ta sẽ lấy được password
+
+<img width="716" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/17f168ea-93db-4f7d-950b-4abea688c4a1">
+
+## Password
+Password: `rr$Li9%L34qd1AAe27`
