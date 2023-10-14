@@ -173,3 +173,11 @@ We’re now managing connections to the intranet using private IP addresses, so 
 Regards,
 
 The network admin
+## Cách làm
+Truy cập vào link http://challenge01.root-me.org/web-serveur/ch68/
+
+<img width="397" alt="Screenshot 2023-10-15 003237" src="https://github.com/aQ05/Write-up/assets/121664384/fb0f8055-a88f-46c7-a653-4dcc7c06ccae">
+
+
+## Password
+
