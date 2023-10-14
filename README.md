@@ -70,7 +70,33 @@ Sau khi đổi yêu cầu với phương thức `HEAD`, ta tìm được flag
 <img width="909" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/0b398cc2-9ea2-446d-87ee-b7515b5504a4">
 
 ## Flag
-picoCTF{r3j3ct_th3_du4l1ty_cca66bd3}
+`picoCTF{r3j3ct_th3_du4l1ty_cca66bd3}`
 
 # Cookies
+## Đề bài
+Who doesn't love cookies? Try to figure out the best one. http://mercury.picoctf.net:27177/
+## Cách làm
+1. Truy cập vào link
+
+<img width="613" alt="Screenshot 2023-10-14 165457" src="https://github.com/aQ05/Write-up/assets/121664384/c4bb187e-f201-4eb2-96a8-e7374af891eb">
+
+2. Kiểm tra cookie
+
+<img width="1198" alt="Screenshot 2023-10-14 170324" src="https://github.com/aQ05/Write-up/assets/121664384/42462452-4fb7-4bf8-a852-810c5b2a12ec">
+
+Khi nhập `snickerdoodle` ta sẽ nhận được hiển thị `I love snickerdoodle cookies!`
+
+<img width="582" alt="Screenshot 2023-10-14 165559" src="https://github.com/aQ05/Write-up/assets/121664384/ba47a67e-052e-4e35-90b1-d8ce4f6615fb">
+
+Sau khi nhập từ theo gợi ý, ta nhận được giá trị 0 ở cột `value` 
+
+<img width="994" alt="Screenshot 2023-10-14 170412" src="https://github.com/aQ05/Write-up/assets/121664384/1f3bbb8f-761c-4f83-93c2-0c846bfccc00">
+
+Giá trị ở cột `value` đã được thay đổi từ -1 sang 0. Giờ thì hãy thay đổi giá trị ở cột này và khi nó bằng 18 chúng ta sẽ tìm được flag
+
+<img width="990" alt="Screenshot 2023-10-14 170651" src="https://github.com/aQ05/Write-up/assets/121664384/27bb9ed5-ee6c-4455-8479-ba32bf4e41aa">
+
+## Flag
+`picoCTF{3v3ry1_l0v3s_c00k135_064663be}`
+
 
