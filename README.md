@@ -100,10 +100,9 @@ Giá trị ở cột `value` đã được thay đổi từ -1 sang 0. Giờ th�
 `picoCTF{3v3ry1_l0v3s_c00k135_064663be}`
 
 # HTTP - User-agent
-## Đề bài
 Admin is really dumb...
 ## Cách làm
-1. Truy cập vào link http://challenge01.root-me.org/web-serveur/ch2/ 
+ Truy cập vào link http://challenge01.root-me.org/web-serveur/ch2/ 
 
 <img width="921" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/52ef7186-a47c-40d0-8c03-c52d45fe8135">
 
@@ -116,4 +115,26 @@ Sử dụng Burpsuite, trong phần request sửa phần user-agent thành `admi
 <img width="716" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/17f168ea-93db-4f7d-950b-4abea688c4a1">
 
 ## Password
-Password: `rr$Li9%L34qd1AAe27`
+`rr$Li9%L34qd1AAe27`
+
+# HTTP - Headers
+HTTP response give informations
+Statement: Get an administrator access to the webpage.
+## Cách làm
+Truy cập vào link http://challenge01.root-me.org/web-serveur/ch5/
+
+ <img width="351" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/34a50ace-a623-44ac-a7a2-9dcb7b1e458a">
+
+ Khi gửi request, ta nhận được `Content is not the only part of an HTTP response!`
+
+ Sử dụng Burpsuite, thấy ở phần response có `Header-RootMe-Admin` mà request không có.
+ 
+ <img width="720" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/e7b08ef8-2087-44e2-bbac-2a2ef2efe04d">
+
+Thêm header này vào phần request với giá trị là `YES`, ta thấy phần password ở phần response
+
+<img width="720" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/0e21bf39-f2a5-4296-97ec-84b85b2009af">
+
+## Password
+`You dit it ! You can validate the challenge with the password HeadersMayBeUseful`
+
