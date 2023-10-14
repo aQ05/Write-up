@@ -178,7 +178,8 @@ Truy cập vào link http://challenge01.root-me.org/web-serveur/ch68/
 
 <img width="397" alt="Screenshot 2023-10-15 003237" src="https://github.com/aQ05/Write-up/assets/121664384/fb0f8055-a88f-46c7-a653-4dcc7c06ccae">
 
-Chúng ta thấy biểu mẫu đăng nhập và dòng thông báo `Your IP ::ffff:171.236.118.185 do not belong to the LAN.` Nên để truy cập trang web chúng ta cần có địa chỉ IP từ mạng cục bộ.
+Chúng ta thấy biểu mẫu đăng nhập và dòng thông báo `Your IP ::ffff:171.236.118.185 do not belong to the LAN.`. Nên để truy cập trang web chúng ta cần có địa chỉ IP từ mạng cục bộ.
+Ở đây chúng ta sẽ sử dụng tiêu đề `X_FORWARDED_FOR` để ghi đè biến.
 
 Sử dụng ModHeader để tìm IP
 
@@ -188,6 +189,7 @@ Và thêm tiêu đề X-FORWARDED-FOR
 
 <img width="433" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/a6a6a673-bf0a-4b17-b8bf-733d4d27683d">
 
+Khi đó ta được
 
 <img width="345" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/7f3acaf4-446a-4ced-9d06-0aca4d49bf58">
 
