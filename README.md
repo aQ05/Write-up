@@ -119,6 +119,7 @@ Sử dụng Burpsuite, trong phần request sửa phần user-agent thành `admi
 
 # HTTP - Headers
 HTTP response give informations
+
 Statement: Get an administrator access to the webpage.
 ## Cách làm
 Truy cập vào link http://challenge01.root-me.org/web-serveur/ch5/
@@ -136,5 +137,29 @@ Thêm header này vào phần request với giá trị là `YES`, ta thấy ph�
 <img width="720" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/0e21bf39-f2a5-4296-97ec-84b85b2009af">
 
 ## Password
-`You dit it ! You can validate the challenge with the password HeadersMayBeUseful`
+`HeadersMayBeUseful`
+# HTTP - POST
+Do you know HTTP?
+
+Statement: Find a way to beat the top score!
+## Cách làm
+Truy cập vào link http://challenge01.root-me.org/web-serveur/ch56/. Sau khi ấn `Give a try`
+
+<img width="507" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/d811011b-764b-4781-a697-7c378cd66137">
+
+Sử dụng Burpsuite, vào phần POST Request của nó ta thấy giá trị nhận được khi ấn `Give a try`. 
+
+<img width="399" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/e749c468-4a09-48b5-9a42-8ab4c6ba2c28">
+
+Để lấy được password, ta cần thay một giá trị lớn hơn `999999`
+
+<img width="413" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/ad138bb4-0456-44b0-99e8-a5ff8f23c878">
+
+Khi đó ta thu được flag
+
+<img width="452" alt="image" src="https://github.com/aQ05/Write-up/assets/121664384/1c9fb1c0-5bd9-4ee5-bc76-6b045dfe7653">
+
+## Flag
+`H7tp_h4s_N0_s3Cr37S_F0r_y0U`
+
 
