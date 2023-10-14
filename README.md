@@ -162,4 +162,14 @@ Khi đó ta thu được flag
 ## Flag
 `H7tp_h4s_N0_s3Cr37S_F0r_y0U`
 
+# HTTP - IP restriction bypass
+Only local users will be able to access the page
 
+Statement
+Dear colleagues,
+
+We’re now managing connections to the intranet using private IP addresses, so it’s no longer necessary to login with a username / password when you are already connected to the internal company network.
+
+Regards,
+
+The network admin
