@@ -67,5 +67,64 @@ Truy cập link http://challenge01.root-me.org/web-serveur/ch9/, ta thấy 1 tra
 ## Flag
 `t0_W34k!$`
 
-#
+# SQL injection - Numeric
+CMS v 0.0.1
+
+**Statement:** Retrieve the administrator password.
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-serveur/ch18/ 
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/969b2c02-4a25-4fc4-99ec-8c052788be0f)
+
+Thêm ký tự `'` vào cuối url để tìm lỗi. Trang `Système de news` xuất hiện lỗi và ta sẽ khai thác trực tiếp trên url.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/32929941-ecae-4b37-9598-4406d6a98148)
+
+CSDL được sử dụng ở đây là SQLite3 nên ta sẽ khai thác trên SQLite3.
+### Tìm số cột
+Đầu tiên sử dụng lệnh `ORDER BY` để kiểm tra số cột cho phép.
+
+Nhập lệnh ` order by 1--` vào cuối url và đến ` order by 4--` thì bị lỗi.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/09be6067-6a96-4e3e-bd13-daf75ef9acf5)
+
+Tức là CSDL này có 3 cột. Dùng lệnh `UNION SELCT` để khai thác dữ liệu.
+### Exploit
+Nhập lệnh ` union select 1,2,3--` 
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/6ffaccf9-ac92-4545-9926-affc9108ec7e)
+
+Như vậy ta có thể khai thác tại cột thứ 2 và 3. Lấy tên bảng bằng cách dùng câu lệnh ` union select 1,2,sql from sqlite_master--`, ta thu được 2 bảng:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/2af7f0ba-1ec4-4e75-9da1-4fa9efc7ca5d)
+
+Đề bài yêu cầu tìm password admin nên ta cần truy xuất dữ liệu từ bảng `users`. Thực thi câu lệnh  ` union select 1,username, password from users --`, ta sẽ tìm được password của admin: `aTlkJYLjcbLmue3`.
+
+![Screenshot 2023-11-05 144912](https://github.com/aQ05/Write-up/assets/121664384/e795ce1e-224c-43f5-bbdb-c4f59d1de201)
+
+
+## Flag
+`aTlkJYLjcbLmue3`
+
+
+
+
+# SQL injection - Error
+Exploiting SQL error
+
+**Statement:** Retrieve administrator’s password.
+
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-serveur/ch34/ thấy có xuất hiện 2 page `Authentication` và `Contents`. 
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/94565777-0f2c-482d-9605-e62b350cdd4a)
+
+Truy cập vào từng trang và nhập `'` ở cuối url thì trang `Contents` xuất hiện lỗi
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/461a61c0-68eb-4b0f-8c74-3b78b78d2e8d)
+
+
+## Flag
+
+
 
