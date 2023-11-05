@@ -41,6 +41,9 @@ Gõ lệnh `1' union select name,sql from sqlite_master--`, ta sẽ biết đư�
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/c1ae054f-3d4b-4b73-ad7c-8784c82412cd)
 
+Và đăng nhập thành công
+![image](https://github.com/aQ05/Write-up/assets/121664384/fd7edfcd-7f0e-47d7-9a70-4b19e9e56cd0)
+
 ## Flag
 `c4K04dtIaJsuWdi`
 
