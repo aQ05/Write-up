@@ -47,6 +47,25 @@ Và đăng nhập thành công
 ## Flag
 `c4K04dtIaJsuWdi`
 
+# SQL injection - Authentication
+Authentication v 0.01
+
+**Statement:** Retrieve the administrator password
+
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-serveur/ch9/, ta thấy 1 trang web có chức năng đăng nhập.
+
+Để đăng nhập, nhập `admin'-- ` vào trường `username` với mật khẩu tùy ý.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/b9d97aa9-71bc-4f07-bbc3-fc8be27c67e9)
 
 
+Để tìm passwprd, `Ctrl U` để xem source code
+![Screenshot 2023-11-05 132759](https://github.com/aQ05/Write-up/assets/121664384/3d6556f8-c513-46af-a414-7babe327713b)
+
+
+## Flag
+`t0_W34k!$`
+
+#
 
