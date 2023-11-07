@@ -153,7 +153,10 @@ Truy cập link http://challenge01.root-me.org/web-serveur/ch10/. Giao diện hi
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/40b751f2-59f2-4cd7-8793-daba5f376695)
 
-Mở burpsuite thử thay đổi payload bằng cách sử dụng `union select`. Dùng lệnh `username=admin%27+union+select+password+from+users+where+username='admin'--+-&password=1` và trang web vẫn không có gì thay đổi.
+Mở burpsuite thử thay đổi payload bằng cách sử dụng `union select`. Dùng lệnh `username=admin%27+union+select+password+from+users+where+username='admin'--+-&password=1` và trang web phản hồi lại có dòng chữ `Injection detected !` 
+
+![Screenshot 2023-11-07 130854](https://github.com/aQ05/Write-up/assets/121664384/899591bb-e45b-4b48-8506-312b18da0309)
+
 
 
 ## Flag
