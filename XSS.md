@@ -78,7 +78,32 @@ Author
 Steal the administrator session’s cookie and go in the admin section.
 ## Cách làm
 Truy cập link http://challenge01.root-me.org/web-client/ch19/
+
 ![image](https://github.com/aQ05/Write-up/assets/121664384/a0fd7f02-239e-4e30-be8d-e9b1b9834dca)
 
+Giao diện ở đây tương tự như bài Stored 1, cũng là gửi message mà lưu lại chờ admin đọc. Trước hết ta kiểm tra xem nó bị XSS ở đâu bằng cách nhập `<script>alert(1)</script>` vào từng trường và thấy dữ liệu được lưu lại khi nhập vào ô `message`.
 
+![image](https://github.com/aQ05/Write-up/assets/121664384/32391831-5ed1-4d3a-b5c8-a06aa0d551ed)
+
+Kiểm tra thử thì thấy có điều đặc biệt ở đây là **Status: invite** ở mỗi post. Xem source thì thấy status được đặt trong thẻ `i`.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/5f502bde-8b49-4244-85f5-3c4e0cbc4cab)
+
+Và nó được xử lý dựa trên cookie này:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/f0ce66a9-f1b0-47bc-93fd-d77073f55495)
+
+Thử dùng Burp Suite xem có thể thay đổi được status không thì thấy status được gửi qua phần cookie và có thể tùy ý thay đổi:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/20a3572d-e879-4c32-b592-edccee2bdea8)
+
+ Thử payload XSS vào: `a"><script>alert(1)</script>`
+ 
+![image](https://github.com/aQ05/Write-up/assets/121664384/9844faad-731f-48fe-b609-a5597135d4d7)
+
+Từ đó, ta đã có chỗ để tiêm XSS vào rồi. 
+![image](https://github.com/aQ05/Write-up/assets/121664384/b27093ad-0b2b-43e9-9cb4-8a50d054ad22)
+
+Tương tự các bài stored,
+`ADMIN_COOKIE=SY2USDIH78TF3DFU78546TE7F`
 ## Flag
