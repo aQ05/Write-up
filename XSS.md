@@ -120,3 +120,20 @@ Ta thu được admin cookie: `ADMIN_COOKIE=SY2USDIH78TF3DFU78546TE7F`. Có ADMI
 
 ## Flag
 `E5HKEGyCXQVsYaehaqeJs0AfV`
+
+# XSS DOM Based - Introduction
+An introduction to DOM Based Cross Site Scripting attacks
+
+**Statement**: Steal the admin’s session cookie.
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-client/ch32/
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/06f56fa5-8908-4e6c-964e-7f5f76eb36eb)
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/7a29797c-4c8a-4659-af98-a86172919029)
+
+Thử kiểm tra XSS ở ô này bằng payload `';alert(1)//` thì thấy thành công:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/59eb4aa4-52e2-46c2-afb2-2d29e91bb1ea)
+
+## Flag
