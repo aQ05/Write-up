@@ -185,3 +185,19 @@ A bad practice ...
 Truy cập link http://challenge01.root-me.org/web-client/ch34/ thấy có một trường yêu cầu nhập phép toán
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/62cc4d64-708c-4acc-8ebf-e5d272e21d1f)
+
+Nhập thử một toán tử `-`:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/b854b158-5077-484f-bd59-341e8f36480f)
+
+Bài này cần ta thực hiện chèn XSS vào một input tính toán và bị filter bởi regex: `/^\d+[\+|\-|\*|\/]\d+/`
+
+Thử lại với một phép toán thì thấy tính năng tính toán của các phép tính được thực hiện thông qua hàm `eval`:
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/a20b6358-8fd4-407e-8a4b-4e8abc6d3de6)
+
+Thử payload: `'; alert(1);//`
+
+![image](https://github.com/aQ05/Write-up/assets/121664384/2dc580fa-90f9-40b6-ab82-e70c8fd47c40)
+
+
