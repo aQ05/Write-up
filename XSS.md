@@ -224,7 +224,7 @@ Có thể thấy dấu nháy đơn đã bị lọc bỏ, và input được hi�
 
 Tra cứu cheatsheet XSS Angular, ta có thể tìm thấy payload: `{{$on.constructor("alert(1)")()}}` 
 
-(sử dụng hàm khởi tạo trong angular để có thể thực thi đoạn mã javascript bên trong ngoặc tròn)
+> sử dụng hàm khởi tạo trong angular để có thể thực thi đoạn mã javascript bên trong ngoặc tròn
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/e5e45d26-bb08-4e7b-adf1-3641ca97c614)
 
