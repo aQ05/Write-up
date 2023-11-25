@@ -47,6 +47,43 @@ Bấm vào link ta lấy được flag:
 `Gg9LRz-hWSxqqUKd77-_q-6G8`
 
 # File upload - MIME type
+
+**Statement**
+
+Your goal is to hack this photo galery by uploading PHP code.
+
+Retrieve the validation password in the file .passwd at the root of the application.
+
+## Cách làm
+Chall: http://challenge01.root-me.org/web-serveur/ch21/
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/80b89c10-5442-4504-856a-cea0e8fe2c85)
+
+Tương tự như bài trên, web chỉ cho upload file ảnh có đuôi `only .gif, .jpeg and .png`.
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/67334c23-c269-4918-af2b-33b7f5cdd3fe)
+
+Thử với web shell như bài trên nhưng không thu được gì
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/ca747dad-3b0e-4451-9559-07eec4fc7ea8)
+
+Tên chall là MIME ta nghĩ đến cách thử đổi Content-type:
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/0b125dd9-0f87-4912-b416-d7ec9d4b32b9)
+
+Khi tải lên file `shell.php` ta sẽ có Content-Type là `application/octet-stream` chính vì vậy nên file bị filter và dẫn đến `Wrong file type!`. Giờ chỉ cần đổi Content-type sang `image/png` là được: 
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/ed4c1152-b404-4c12-b36c-f59728a358b1)
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/711e82b0-c021-4bbb-90ae-c05b486c3e34)
+
+Bấm vào link
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/e8151dae-6cb3-4881-8bcf-8b6ba21e700d)
+
+## Flag
+`a7n4nizpgQgnPERy89uanf6T4`
+
 # File upload - ZIP
 # File upload - Polyglot
 # File upload - Null byte
