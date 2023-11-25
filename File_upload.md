@@ -1,4 +1,4 @@
-[ File upload - Double extensions](https://github.com/File_upload#File-upload-Double-extensions)
+
 # File upload - Double extensions
 **Statement**
 
