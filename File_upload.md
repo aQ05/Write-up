@@ -1,3 +1,4 @@
+![Screenshot from 2023-09-22 21-50-28](https://github.com/aQ05/Write-up.training/assets/121664384/2487b70a-0645-4d13-ab25-0ab0eb860bdf)
 # File upload - Double extensions
 **Statement**
 
@@ -141,6 +142,9 @@ Tạo file `.txt`
 > `ln`: tạo link trong linux
 > 
 > `-s`: chỉ định một liên kết symbolic được tạo
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/8f819beb-19d5-4335-b6c7-677d073d4596)
+
 # File upload - Polyglot
 **Statement**
 
@@ -148,4 +152,4 @@ Your friend who is a photography fan has created a site to allow people to share
 ## Cách làm
 Chall: http://challenge01.root-me.org:59072/
 
-![image](https://github.com/aQ05/Write-up.training/assets/121664384/10c3195c-2e88-431e-bdd3-4807668c7c77)
+
