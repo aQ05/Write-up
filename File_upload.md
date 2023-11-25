@@ -38,7 +38,7 @@ echo "<pre>$output</pre>";
 
 ![image](https://github.com/aQ05/Write-up.training/assets/121664384/e814115b-022a-435a-b933-0237c030467c)
 
-Bấm vào link ta lấy được flag:
+Mở file đã upload:
 
 ![image](https://github.com/aQ05/Write-up.training/assets/121664384/410d2f24-3879-48a5-830f-f5c2796dfffc)
 
@@ -76,13 +76,76 @@ Khi tải lên file `shell.php` ta sẽ có Content-Type là `application/octet-
 
 ![image](https://github.com/aQ05/Write-up.training/assets/121664384/711e82b0-c021-4bbb-90ae-c05b486c3e34)
 
-Bấm vào link
+Mở file đã upload
 
 ![image](https://github.com/aQ05/Write-up.training/assets/121664384/e8151dae-6cb3-4881-8bcf-8b6ba21e700d)
 
 ## Flag
 `a7n4nizpgQgnPERy89uanf6T4`
 
-# File upload - ZIP
-# File upload - Polyglot
 # File upload - Null byte
+**Statement**
+
+Your goal is to hack this photo galery by uploading PHP code.
+
+## Cách làm
+Chall: http://challenge01.root-me.org/web-serveur/ch22/
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/9f610409-6857-44a9-ae4a-031a77dec262)
+
+Tương tự như bài trên, web chỉ cho upload file ảnh có đuôi `only .gif, .jpeg and .png`.
+
+Thử với web shell như các bài trên và tất nhiên không được. Tên chall là Null Byte nên ta có thể bypass bằng cách sử dụng `%00`
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/58155bf0-d180-472a-b81e-3c4e1b5838de)
+
+> `%00` tương đương giá trị null, khi nhận tên file vào đến giá trị null thì bị dừng lại và ta có thể tải lên file shell.php
+
+Mở file đã upload
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/88e2e80f-38db-4582-b321-11b6b5ca13f5)
+
+## Flag
+`YPNchi2NmTwygr2dgCCF`
+
+
+# File upload - ZIP
+**Statement**
+
+Your goal is to read index.php file.
+
+## Cách làm
+Chall: http://challenge01.root-me.org/web-serveur/ch51/
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/679fecca-4a61-4244-bfa4-aa8097f93152)
+
+Thử tải web shell, ta không thu được gì cả:
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/4b25320a-4fae-4b9f-bfbe-01935f4c5116)
+
+Tiếp tục thử với một file `shell.zip`
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/e2c6991c-7e5b-4c86-9983-246e25f6d58f)
+
+Khi upload file zip thì server đổi tên file và giải nén file đó. File zip chứa media, document thì mở ra xem bình thường. Tuy nhiên file `.php` khi mở thì bị lỗi (403 Forbidden):
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/7219587c-b252-4cc3-a280-2267537325ab)
+
+Tạo file `.txt`
+
+
+> [symbolic / soft link](https://clammy-snowstorm-0d2.notion.site/symbolic-soft-link-05ca57bf671a42acae52cfba49f19cb5) được sử dụng để tạo lối tắt đến tệp hoặc thư mục, giúp chúng ta có thể truy cập được từ các vị trí khác nhau trong hệ thống tệp.
+>
+> `ln -s ../../../index.php index.txt`
+> 
+> `ln`: tạo link trong linux
+> 
+> `-s`: chỉ định một liên kết symbolic được tạo
+# File upload - Polyglot
+**Statement**
+
+Your friend who is a photography fan has created a site to allow people to share their beautiful photos. He assures you that his site is secure because he checks that the file sent is a JPEG, and that it is not a disguised PHP file. Prove him wrong!
+## Cách làm
+Chall: http://challenge01.root-me.org:59072/
+
+![image](https://github.com/aQ05/Write-up.training/assets/121664384/10c3195c-2e88-431e-bdd3-4807668c7c77)
