@@ -145,6 +145,7 @@ Tạo file `.txt`
 
 ![image](https://github.com/aQ05/Write-up.training/assets/121664384/8f819beb-19d5-4335-b6c7-677d073d4596)
 
+`N3v3r_7rU5T_u5Er_1npU7`
 # File upload - Polyglot
 **Statement**
 
