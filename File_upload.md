@@ -1,4 +1,4 @@
-![Screenshot from 2023-09-22 21-50-28](https://github.com/aQ05/Write-up.training/assets/121664384/2487b70a-0645-4d13-ab25-0ab0eb860bdf)
+
 # File upload - Double extensions
 **Statement**
 
