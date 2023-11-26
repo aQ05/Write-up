@@ -33,6 +33,7 @@ echo "<pre>$output</pre>";
 ?>
 ```
 > Lệnh `cat` cho phép người dùng tạo một hoặc nhiều file, xem nội dung file, nối file và chuyển hướng đầu ra trong terminal hoặc file.
+
 > [shell_exec](https://www.php.net/manual/en/function.shell-exec.php): thực thi lệnh qua shell và trả về đầu ra hoàn chỉnh dưới dạng chuỗi
 
 Đề bài đã gợi ý cho ta sử dụng Double Extensions, do đó thử rename file `.php` thành `.php.png` và upload:
